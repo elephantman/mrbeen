@@ -41,14 +41,24 @@ export const clearCustomFirebaseConfig = () => {
 
 const customConfig = getStoredFirebaseConfig();
 
-// Environment variables configuration with fallback to stored local config
+// Default production configuration for mrbeen project
+const DEFAULT_FIREBASE_CONFIG: FirebaseConfigKeys = {
+  apiKey: 'AIzaSyAkslDo8gbsPEcBmo-5PBxs0Go0SiWlbBI',
+  authDomain: 'mrbeen-bc535.firebaseapp.com',
+  projectId: 'mrbeen-bc535',
+  storageBucket: 'mrbeen-bc535.firebasestorage.app',
+  messagingSenderId: '515930564465',
+  appId: '1:515930564465:web:874bc7c1163fe4f424b8d0',
+};
+
+// Environment variables configuration with fallback to default and stored local config
 export const firebaseConfig: FirebaseConfigKeys = {
-  apiKey: customConfig?.apiKey || env.VITE_FIREBASE_API_KEY || '',
-  authDomain: customConfig?.authDomain || env.VITE_FIREBASE_AUTH_DOMAIN || '',
-  projectId: customConfig?.projectId || env.VITE_FIREBASE_PROJECT_ID || '',
-  storageBucket: customConfig?.storageBucket || env.VITE_FIREBASE_STORAGE_BUCKET || '',
-  messagingSenderId: customConfig?.messagingSenderId || env.VITE_FIREBASE_MESSAGING_SENDER_ID || '',
-  appId: customConfig?.appId || env.VITE_FIREBASE_APP_ID || '',
+  apiKey: env.VITE_FIREBASE_API_KEY || customConfig?.apiKey || DEFAULT_FIREBASE_CONFIG.apiKey,
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || customConfig?.authDomain || DEFAULT_FIREBASE_CONFIG.authDomain,
+  projectId: env.VITE_FIREBASE_PROJECT_ID || customConfig?.projectId || DEFAULT_FIREBASE_CONFIG.projectId,
+  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || customConfig?.storageBucket || DEFAULT_FIREBASE_CONFIG.storageBucket,
+  messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID || customConfig?.messagingSenderId || DEFAULT_FIREBASE_CONFIG.messagingSenderId,
+  appId: env.VITE_FIREBASE_APP_ID || customConfig?.appId || DEFAULT_FIREBASE_CONFIG.appId,
 };
 
 // Check if valid Firebase configuration is provided
