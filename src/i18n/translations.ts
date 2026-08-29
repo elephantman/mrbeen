@@ -22,6 +22,24 @@ export const TRANSLATIONS = {
     share_card: 'Share Card',
     settings: 'Settings',
 
+    // Google Auth & Cloud Sync
+    sign_in_google: 'Sign in with Google',
+    sign_in_short: 'Sign in',
+    sign_out: 'Sign Out',
+    cloud_synced: 'Cloud Synced',
+    cloud_syncing: 'Syncing...',
+    cloud_offline: 'Saved Locally',
+    cloud_error: 'Sync Error',
+    cloud_storage_status: 'Cloud Storage',
+    logged_in_as: 'Signed in as',
+    firebase_setup_needed: 'Firebase setup needed in .env',
+
+    // Soft Cloud Backup Reminder Pop-up
+    cloud_prompt_title: 'Save your travels to the Cloud!',
+    cloud_prompt_desc: "You've marked {count} places! Connect with Google to back up your journey, sync across all your devices, and never lose your progress.",
+    cloud_prompt_connect: 'Connect with Google',
+    cloud_prompt_later: 'Maybe Later',
+
     // Navigation & Tabs
     nav_map: 'Interactive Map',
     nav_countries: 'Countries',
@@ -157,7 +175,7 @@ export const TRANSLATIONS = {
     section_theme_desc: 'Choose your personal map and accent color style',
     section_data_privacy: 'Data & Privacy',
     section_data_privacy_desc: 'Your travel data is stored 100% locally in your browser',
-    app_version: 'Been Explorer v1.2.0 • Zero tracking • Client-side only',
+    app_version: 'Been Explorer v1.3.0 • Zero tracking • Cloud Sync enabled',
     close_btn: 'Close',
   },
   tr: {
@@ -180,6 +198,24 @@ export const TRANSLATIONS = {
     reset_confirm: 'Tüm gezilen yerleri sıfırlayıp baştan başlamak istediğinize emin misiniz?',
     share_card: 'Kartı Paylaş',
     settings: 'Ayarlar',
+
+    // Google Auth & Cloud Sync
+    sign_in_google: 'Google ile Giriş Yap',
+    sign_in_short: 'Giriş Yap',
+    sign_out: 'Çıkış Yap',
+    cloud_synced: 'Buluta Yedeklendi',
+    cloud_syncing: 'Eşitleniyor...',
+    cloud_offline: 'Cihazda Kayıtlı',
+    cloud_error: 'Bağlantı Hatası',
+    cloud_storage_status: 'Bulut Yedekleme',
+    logged_in_as: 'Giriş yapılan hesap',
+    firebase_setup_needed: 'Firebase .env ayarı gerekiyor',
+
+    // Soft Cloud Backup Reminder Pop-up
+    cloud_prompt_title: 'Seyahatlerinizi Buluta Kaydedin!',
+    cloud_prompt_desc: '{count} yer işaretlediniz! Haritanızı tüm cihazlarınızda görmek, asla kaybetmemek ve yedeklemek için Google hesabınızı bağlayabilirsiniz.',
+    cloud_prompt_connect: 'Google ile Bağla',
+    cloud_prompt_later: 'Daha Sonra',
 
     // Navigation & Tabs
     nav_map: 'İnteraktif Harita',
@@ -316,7 +352,7 @@ export const TRANSLATIONS = {
     section_theme_desc: 'Harita ve vurgu renklerinizi seçin',
     section_data_privacy: 'Veri & Gizlilik',
     section_data_privacy_desc: 'Tüm seyahat verileriniz %100 yerel olarak tarayıcınızda saklanır',
-    app_version: 'Been Explorer v1.2.0 • Sıfır takip • Gizlilik odaklı',
+    app_version: 'Been Explorer v1.3.0 • Sıfır takip • Bulut Yedekleme Hazır',
     close_btn: 'Kapat',
   }
 };

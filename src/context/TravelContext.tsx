@@ -53,6 +53,7 @@ interface TravelContextType {
   setUserName: (name: string) => void;
   setTagline: (tagline: string) => void;
   loadPreset: (presetId: string) => void;
+  loadUserData: (newData: UserTravelData) => void;
   clearAllData: () => void;
   exportJSON: () => void;
   importJSON: (file: File) => Promise<boolean>;
@@ -307,6 +308,10 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   }, [triggerCelebration]);
 
+  const loadUserData = useCallback((newData: UserTravelData) => {
+    setData(newData);
+  }, []);
+
   const clearAllData = useCallback(() => {
     setData(prev => ({
       ...DEFAULT_USER_DATA,
@@ -365,6 +370,7 @@ export const TravelProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setUserName,
         setTagline,
         loadPreset,
+        loadUserData,
         clearAllData,
         exportJSON,
         importJSON,

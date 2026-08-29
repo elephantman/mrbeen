@@ -1,5 +1,6 @@
 import React from 'react';
 import { TravelProvider, useTravel } from './context/TravelContext';
+import { AuthProvider } from './context/AuthContext';
 import { Navbar } from './components/layout/Navbar';
 import { Sidebar } from './components/layout/Sidebar';
 import { BottomNav } from './components/layout/BottomNav';
@@ -14,6 +15,7 @@ import { CountryDetailDrawer } from './components/search/CountryDetailDrawer';
 import { AddCustomCityModal } from './components/search/AddCustomCityModal';
 import { ShareStudioModal } from './components/social/ShareStudioModal';
 import { SettingsModal } from './components/settings/SettingsModal';
+import { CloudBackupPrompt } from './components/auth/CloudBackupPrompt';
 
 const AppContent: React.FC = () => {
   const { activeTab, mapMode } = useTravel();
@@ -49,6 +51,7 @@ const AppContent: React.FC = () => {
       <AddCustomCityModal />
       <ShareStudioModal />
       <SettingsModal />
+      <CloudBackupPrompt />
 
       {/* Mobile Navigation */}
       <BottomNav />
@@ -59,7 +62,9 @@ const AppContent: React.FC = () => {
 export function App() {
   return (
     <TravelProvider>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </TravelProvider>
   );
 }
