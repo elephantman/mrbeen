@@ -15,6 +15,8 @@ interface AuthContextType {
   loading: boolean;
   syncStatus: SyncStatus;
   isFirebaseReady: boolean;
+  isFirebaseSetupOpen: boolean;
+  setIsFirebaseSetupOpen: (open: boolean) => void;
   signInWithGoogle: () => Promise<boolean>;
   signOutUser: () => Promise<void>;
   forceCloudSave: () => Promise<void>;
@@ -27,6 +29,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isFirebaseSetupOpen, setIsFirebaseSetupOpen] = useState(false);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>(() => 
     isFirebaseConfigured() ? 'local' : 'offline'
   );
@@ -96,7 +99,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInWithGoogle = useCallback(async (): Promise<boolean> => {
     if (!auth || !isFirebaseReady) {
-      alert('Firebase credentials not configured in environment yet. Please add VITE_FIREBASE_API_KEY to your .env file or Vercel settings.');
+      setIsFirebaseSetupOpen(true);
       return false;
     }
 
@@ -148,6 +151,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loading,
         syncStatus,
         isFirebaseReady,
+        isFirebaseSetupOpen,
+        setIsFirebaseSetupOpen,
         signInWithGoogle,
         signOutUser,
         forceCloudSave,

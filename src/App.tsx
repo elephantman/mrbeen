@@ -16,9 +16,12 @@ import { AddCustomCityModal } from './components/search/AddCustomCityModal';
 import { ShareStudioModal } from './components/social/ShareStudioModal';
 import { SettingsModal } from './components/settings/SettingsModal';
 import { CloudBackupPrompt } from './components/auth/CloudBackupPrompt';
+import { FirebaseSetupModal } from './components/auth/FirebaseSetupModal';
+import { useAuth } from './context/AuthContext';
 
 const AppContent: React.FC = () => {
   const { activeTab, mapMode } = useTravel();
+  const { isFirebaseSetupOpen, setIsFirebaseSetupOpen } = useAuth();
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-orange-500 selection:text-white">
@@ -52,6 +55,10 @@ const AppContent: React.FC = () => {
       <ShareStudioModal />
       <SettingsModal />
       <CloudBackupPrompt />
+      <FirebaseSetupModal
+        isOpen={isFirebaseSetupOpen}
+        onClose={() => setIsFirebaseSetupOpen(false)}
+      />
 
       {/* Mobile Navigation */}
       <BottomNav />
